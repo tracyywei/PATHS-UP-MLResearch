@@ -1,7 +1,7 @@
 # Summer Research Internship at Rice University
 ## Week 1
 <b><li>iris-test.py</b>: machine learning practice with the iris dataset --> entire ml process and various plots (<a href = "https://machinelearningmastery.com/machine-learning-in-python-step-by-step/">Reference</a>)
-<br><b><li>iris-unsupervised.py</b>: independent unsupervised learning practice (specifically k-means clustering) with the iris dataset
+<br><b><li>iris-unsupervised.py</b>: independent unsupervised learning practice (specifically k-means clustering) with the iris dataset (<a href = "https://www.kaggle.com/efeergun96/unsupervised-learning-on-iris">Reference</a>)
 <br><br>![image](https://user-images.githubusercontent.com/66813711/124488736-ccb10f00-dd75-11eb-94ae-362482e7d380.png)
 <br><b><li>breastcancer-supervised.py</b>: independent supervised learning practice with the <a href = "https://scikit-learn.org/0.23/modules/generated/sklearn.datasets.load_breast_cancer.html">breast cancer wisconsin dataset from scikitlearn</a>, scatterplot
 <br><br>![image](https://user-images.githubusercontent.com/66813711/124409504-0cdca700-dd0e-11eb-86a1-c8502d8961da.png)
