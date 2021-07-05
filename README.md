@@ -1,4 +1,4 @@
-# Summer Research Internship at Rice University
+# PATHS-UP Young Scholars Program
 ## Week 1
 <b><li>iris-test.py</b>: machine learning practice with the iris dataset --> entire ml process and various plots (<a href = "https://machinelearningmastery.com/machine-learning-in-python-step-by-step/">Reference</a>)
 <br><b><li>iris-unsupervised.py</b>: independent unsupervised learning practice (specifically k-means clustering) with the iris dataset (<a href = "https://www.kaggle.com/efeergun96/unsupervised-learning-on-iris">Reference</a>)
