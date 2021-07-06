@@ -10,6 +10,7 @@ Created on Mon Jul  5 17:36:55 2021
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
@@ -55,7 +56,7 @@ print(cm)
 
 # Hierarchical clustering
 from sklearn.cluster import AgglomerativeClustering 
-hc = AgglomerativeClustering(n_clusters = 2, affinity = 'euclidean', linkage ='ward')
+hc = AgglomerativeClustering(n_clusters = 2)
 hc_pred = hc.fit_predict(df)
 plt.scatter(df[:,0], df[:,1], c = hc_pred, alpha = 0.5)
 plt.title('Hierarchical clustering')
@@ -93,29 +94,3 @@ cm = confusion_matrix(dataset.target, ms_pred)
 print('Mean-shift accuracy score:')
 print(accuracy_score(dataset.target, ms_pred))
 print(cm)
-
-
-# Affinity Propagation - need help
-from sklearn.cluster import AffinityPropagation
-ap = AffinityPropagation(preference =-50)
-ap.fit(df)
-pred = ap.predict(df)
-cluster_centers_indices = clustering.cluster_centers_indices_
-n_clusters_ = len(cluster_centers_indices)
-plt.scatter(df[:,0], df[:,1], c = pred, alpha = 0.5)
-plt.title('Affinity Propagation')
-plt.xlabel(dataset.feature_names[0])
-plt.ylabel(dataset.feature_names[1])
-plt.show()
-cm = confusion_matrix(dataset.target, pred)
-print('Affinity Propagation accuracy score:')
-print(accuracy_score(dataset.target, pred))
-print(cm)
-
-
-# DBSCAN -- need help and incomplete
-from sklearn.cluster import DBSCAN
-db = DBSCAN(eps=0.3, min_samples=5).fit(df)
-core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
-core_samples_mask[db.core_sample_indices_] = True
-xlabels = db.labels_
