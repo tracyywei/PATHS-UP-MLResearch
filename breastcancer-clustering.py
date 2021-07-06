@@ -56,16 +56,25 @@ print(cm)
 
 # Hierarchical clustering
 from sklearn.cluster import AgglomerativeClustering 
-hc = AgglomerativeClustering(n_clusters = 2)
+hc = AgglomerativeClustering(n_clusters=2)
 hc_pred = hc.fit_predict(df)
-plt.scatter(df[:,0], df[:,1], c = hc_pred, alpha = 0.5)
+
+dframe = pd.DataFrame({'predictions': hc_pred, 'target': dataset.target})
+ct = pd.crosstab(dframe['predictions'], dframe['target'])
+print(ct)
+
+hc_pred_labels = np.zeros((569,))
+hc_pred_labels[np.where(predictions ==0)] = 1
+hc_pred_labels[np.where(predictions ==1)] = 0
+
+plt.scatter(df[:,0], df[:,1], c = hc_pred_labels, alpha = 0.5)
 plt.title('Hierarchical clustering')
 plt.xlabel(dataset.feature_names[0])
 plt.ylabel(dataset.feature_names[1])
 plt.show()
-cm = confusion_matrix(dataset.target, hc_pred)
+cm = confusion_matrix(dataset.target, hc_pred_labels)
 print('Hierarchical clustering accuracy score:')
-print(accuracy_score(dataset.target, hc_pred))
+print(accuracy_score(dataset.target, hc_pred_labels))
 print(cm)
 
 
