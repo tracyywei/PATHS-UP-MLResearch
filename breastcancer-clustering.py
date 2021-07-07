@@ -6,7 +6,6 @@ Created on Mon Jul  5 17:36:55 2021
 @author: tracywei
 """
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -20,45 +19,31 @@ dataset = load_breast_cancer()
 df = dataset.data
 df_target = pd.DataFrame(dataset.target, columns=['target'])
 df_features = pd.DataFrame(dataset.data, columns = dataset.feature_names)
-
-# k-means clustering
-from sklearn.cluster import KMeans
-model = KMeans(n_clusters = 2)
-model.fit(df)
-predictions = model.predict(df)
-
-dframe = pd.DataFrame({'predictions': predictions, 'target': dataset.target})
-ct = pd.crosstab(dframe['predictions'], dframe['target'])
-print(ct)
-
-new_pred_labels = np.zeros((569,))
-new_pred_labels[np.where(predictions ==0)] = 1
-new_pred_labels[np.where(predictions ==1)] = 0
-
-plt.scatter(df[:,0], df[:,1], c = predictions, alpha = 0.5)
-plt.title('Actual clusters')
-plt.xlabel(dataset.feature_names[0])
-plt.ylabel(dataset.feature_names[1])
-plt.show()
-
-plt.scatter(df[:,0], df[:,1], c = new_pred_labels, alpha = 0.5)
-plt.title('k-means clustering')
-plt.xlabel(dataset.feature_names[0])
-plt.ylabel(dataset.feature_names[1])
-plt.show()
-
-cm = confusion_matrix(dataset.target, new_pred_labels)
-print('K-means Clustering accuracy score:')
-print(accuracy_score(dataset.target, new_pred_labels))
-print(cm)
-
-
-# Hierarchical clustering
 X = dataset.data
 y = dataset.target
 
 from sklearn import preprocessing
 normalizedX = preprocessing.normalize(X)
+
+# k-means clustering
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters = 2)
+model.fit_predict(normalizedX)
+k_labels = model.labels_
+
+plt.scatter(X[:,0], X[:,1], c = k_labels, alpha = 0.5)
+plt.title('k-means clustering')
+plt.xlabel(dataset.feature_names[0])
+plt.ylabel(dataset.feature_names[1])
+plt.show()
+
+cm = confusion_matrix(dataset.target, predictions)
+print('K-means Clustering accuracy score:')
+print(accuracy_score(dataset.target, k_labels))
+print(cm)
+
+
+# Hierarchical clustering
 
 from sklearn.cluster import AgglomerativeClustering 
 hc = AgglomerativeClustering(n_clusters = 2, affinity = 'euclidean', linkage = 'ward')
