@@ -6,6 +6,7 @@ Created on Mon Jul  5 17:36:55 2021
 @author: tracywei
 """
 
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -35,10 +36,8 @@ y_pred = np.zeros((569,))
 y_pred[np.where(k_pred==0)]= 1
 y_pred[np.where(k_pred==1)]= 0
 
-print('K-means Clustering accuracy score:')
-print(accuracy_score(Y, y_pred))
-cm = confusion_matrix(Y, y_pred)
-print(cm)
+print('K-means Clustering accuracy score:', accuracy_score(Y, y_pred))
+print('K-means Clustering confusion matrix:', confusion_matrix(Y, y_pred))
 
 plt.scatter(pX[:,0], pX[:,1], c = y_pred, alpha = 0.5)
 plt.title('k-means clustering')
@@ -61,10 +60,8 @@ y_pred = np.zeros((569,))
 y_pred[np.where(h_pred==0)]= 0
 y_pred[np.where(h_pred==1)]= 1
 
-print('Hierarchical clustering accuracy score:')
-print(accuracy_score(Y, h_pred))
-cm = confusion_matrix(Y, h_pred)
-print(cm)
+print('Hierarchical clustering accuracy score:', accuracy_score(Y, h_pred))
+print('Hierarchical clustering confusion matrix:', confusion_matrix(Y, h_pred))
 
 plt.scatter(X[:,0], X[:,1], c = h_pred, alpha = 0.5)
 plt.title('Hierarchical clustering')
@@ -74,8 +71,9 @@ plt.show()
 
 
 # Mean-shift
-from sklearn.cluster import MeanShift
-ms = MeanShift()
+from sklearn.cluster import MeanShift, estimate_bandwidth
+bandwidth = estimate_bandwidth(pX, quantile=0.075)
+ms = MeanShift(bandwidth=bandwidth, bin_seeding=True, n_jobs=None, max_iter=300)
 m_pred = ms.fit_predict(pX)
 
 dframe = pd.DataFrame({'predictions': m_pred, 'target': Y})
@@ -84,14 +82,14 @@ print(ct)
 
 my_pred = np.zeros((569,))
 my_pred[np.where(m_pred==0)]= 1
-my_pred[np.where(m_pred==11)]= 1
-my_pred[np.where(m_pred==12)]= 1
-my_pred[np.where(m_pred==13)]= 1
+my_pred[np.where(m_pred==3)]= 1
+my_pred[np.where(m_pred==4)]= 1
+my_pred[np.where(m_pred==5)]= 1
+my_pred[np.where(m_pred==9)]= 1
+my_pred[np.where(m_pred==8)]= 1
 
-print('Mean-shift accuracy score:')
-print(accuracy_score(Y, my_pred))
-cm = confusion_matrix(Y, my_pred)
-print(cm)
+print('Mean-shift accuracy score:', accuracy_score(Y, my_pred))
+print('Mean-shift confusion matrix:', confusion_matrix(Y, my_pred))
 
 plt.scatter(X[:,0], X[:,1], c = my_pred, alpha = 0.5)
 plt.title('Mean-shift clustering')
