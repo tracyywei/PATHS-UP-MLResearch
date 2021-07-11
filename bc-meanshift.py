@@ -30,10 +30,9 @@ ct = pd.crosstab(dframe['predictions'], dframe['target'])
 print(ct)
 
 my_pred = np.zeros((569,))
-my_pred[np.where(m_pred==0)]= 1
-my_pred[np.where(m_pred==2)]= 1
-my_pred[np.where(m_pred==5)]= 1
-my_pred[np.where(m_pred==6)]= 1
+for x in ct.index:
+    if ct[0][x] < ct[1][x]:
+        my_pred[np.where(m_pred==x)]= 1
 
 print('Mean-shift accuracy score:', accuracy_score(Y, my_pred))
 print('Mean-shift confusion matrix:', confusion_matrix(Y, my_pred))
@@ -49,3 +48,17 @@ plt.title('Mean-shift clustering')
 plt.xlabel(dataset.feature_names[0])
 plt.ylabel(dataset.feature_names[1])
 plt.show()
+
+f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+ax1.scatter(pX[:,0], pX[:,1], c=m_pred, cmap='jet', edgecolor='None', alpha=0.5)
+ax1.set_title('Actual clusters')
+ax2.scatter(pX[:,0], pX[:,1], c=my_pred, cmap='jet', edgecolor='None', alpha=0.5)
+ax2.set_title('Mean-shift results')
+
+
+# Mean-shift accuracy score: 0.9033391915641477
+# Mean-shift confusion matrix: [[184  28]
+# [ 27 330]]
+# Precision: 0.922
+# Recall: 0.924
+# F1: 0.923
