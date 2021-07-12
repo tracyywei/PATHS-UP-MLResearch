@@ -1,12 +1,19 @@
 # PATHS-UP Young Scholars Program
 ## Week 3
+Applied dimensionality reduction to clustering algorithms
+<br><br>![image](https://user-images.githubusercontent.com/66813711/125358580-b2a39d80-e32e-11eb-9e25-856b53885f4b.png)        ![image](https://user-images.githubusercontent.com/66813711/125358939-32ca0300-e32f-11eb-8733-6d2b7f1b1f53.png)
+<br>![image](https://user-images.githubusercontent.com/66813711/125358662-d0710280-e32e-11eb-9eb7-7219e4cfb67a.png)        ![image](https://user-images.githubusercontent.com/66813711/125358722-e8e11d00-e32e-11eb-82b9-a82cdbfccd56.png)
 
 ## Week 2
-<b><li>bc-kmeans.py</b>: K-means clustering
-<br><b><li>bc-agg.py</b>: Agglomerative Clustering (<a href = "https://medium.com/@sametgirgin/hierarchical-clustering-model-in-5-steps-with-python-6c45087d4318">Reference</a>)
+<b><a href="https://www.notion.so/research-observations-018a312d9487489991b13f35bca735e5">My Observations and Progress</b></a> 
+<br><b><li>bc-kmeans.py</b>: K-means clustering
+<br><b><li>bc-aggcluster.py</b>: Agglomerative Clustering (<a href = "https://medium.com/@sametgirgin/hierarchical-clustering-model-in-5-steps-with-python-6c45087d4318">Reference</a>)
 <br><b><li>bc-meanshift.py</b>: Mean Shift Clustering (<a href = "https://scikit-learn.org/stable/auto_examples/cluster/plot_mean_shift.html#sphx-glr-auto-examples-cluster-plot-mean-shift-py">Reference</a>)
 <br><b><li>bc-affprop.py</b>: Affinity Propagation clustering (<a href = "https://www.geeksforgeeks.org/affinity-propagation-in-ml-to-find-the-number-of-clusters/">Reference</a>)
-<br><b><a href="https://www.notion.so/research-observations-018a312d9487489991b13f35bca735e5">My Observations and Progress</b></a> 
+<br><br>![image](https://user-images.githubusercontent.com/66813711/125358257-4a54bc00-e32e-11eb-8bd3-1aed361c14bb.png)
+  ![image](https://user-images.githubusercontent.com/66813711/125358304-580a4180-e32e-11eb-959f-28197fd2b6a6.png)  ![image](https://user-images.githubusercontent.com/66813711/125358353-65bfc700-e32e-11eb-98da-7caa8b6cc658.png)
+  ![image](https://user-images.githubusercontent.com/66813711/125358184-36a95580-e32e-11eb-8956-791df2d4a983.png)
+
 ## Week 1
 <b><li>iris-test.py</b>: machine learning practice with the iris dataset --> entire ml process and various plots (<a href = "https://machinelearningmastery.com/machine-learning-in-python-step-by-step/">Reference</a>)
 <br><b><li>iris-unsupervised.py</b>: independent unsupervised learning practice (specifically k-means clustering) with the iris dataset (<a href = "https://www.kaggle.com/efeergun96/unsupervised-learning-on-iris">Reference</a>)
