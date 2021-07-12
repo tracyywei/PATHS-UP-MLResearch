@@ -13,6 +13,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
 
 from sklearn.datasets import load_breast_cancer
 dataset = load_breast_cancer()
@@ -22,6 +23,11 @@ Y = dataset.target
 pX = preprocessing.normalize(X)
 from sklearn.cluster import AffinityPropagation
 ap = AffinityPropagation()
+
+pca_model = PCA(n_components=5)
+pca_model.fit(pX)
+pX = pca_model.transform(pX)
+
 a_pred = ap.fit_predict(pX)
 
 dframe = pd.DataFrame({'predictions': a_pred, 'target': Y})
@@ -53,7 +59,7 @@ ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=y_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('Affinity Propagationg results')
 
-
+# Without dimensionality reduction
 # Affinity Propagation accuracy score: 0.9191564147627417
 # Affinity Propagation confusion matrix: [[182  30]
 # [ 16 341]]

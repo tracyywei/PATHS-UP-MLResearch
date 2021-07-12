@@ -14,6 +14,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
 
 # import breast cancer dataset
 from sklearn.datasets import load_breast_cancer
@@ -27,6 +28,11 @@ pX = StandardScaler().fit_transform(X)
 # initializing model with parameters
 from sklearn.cluster import KMeans
 model = KMeans(n_clusters=7, init='k-means++', n_init=10, max_iter=300, random_state=1)
+
+# Dimesionality reduction to 4
+pca_model = PCA(n_components=4)
+pca_model.fit(pX)
+pX = pca_model.transform(pX)
 
 # fit model
 k_pred = model.fit_predict(pX)
@@ -65,6 +71,7 @@ ax2.scatter(pX[:,0], pX[:,1], c=y_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('KMeans clustering results')
 
 # metrics results
+# Without dimensionality reduction
 # K-means clustering accuracy score: 0.9332161687170475
 # K-means clustering confusion matrix:[[185  27]
 # [ 11 346]]

@@ -13,6 +13,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
 
 from sklearn.datasets import load_breast_cancer
 dataset = load_breast_cancer()
@@ -23,6 +24,11 @@ pX = preprocessing.normalize(X)
 from sklearn.cluster import MeanShift, estimate_bandwidth
 bandwidth = estimate_bandwidth(pX, quantile=0.09)
 ms = MeanShift(bandwidth=bandwidth, bin_seeding=True, n_jobs=None, max_iter=300)
+
+pca_model = PCA(n_components=2)
+pca_model.fit(pX)
+pX = pca_model.transform(pX)
+
 m_pred = ms.fit_predict(pX)
 
 dframe = pd.DataFrame({'predictions': m_pred, 'target': Y})
@@ -55,7 +61,7 @@ ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=my_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('Mean-shift results')
 
-
+# Without dimensionality reduction
 # Mean-shift accuracy score: 0.9033391915641477
 # Mean-shift confusion matrix: [[184  28]
 # [ 27 330]]

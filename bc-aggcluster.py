@@ -13,6 +13,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
+from sklearn.decomposition import PCA
 
 from sklearn.datasets import load_breast_cancer
 dataset = load_breast_cancer()
@@ -22,6 +23,7 @@ Y = dataset.target
 pX = preprocessing.normalize(X)
 from sklearn.cluster import AgglomerativeClustering 
 hc = AgglomerativeClustering(n_clusters = 11, affinity = 'euclidean', linkage = 'ward')
+
 h_pred = hc.fit_predict(pX)
 
 dframe = pd.DataFrame({'predictions': h_pred, 'target': Y})
@@ -53,6 +55,7 @@ ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=hy_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('Agglomerative Clustering results')
 
+# Without dimensionality reduction
 # Agglomerative Clustering accuracy score: 0.9244288224956063
 # Agglomerative Clustering confusion matrix: [[188  24]
 # [ 19 338]]
