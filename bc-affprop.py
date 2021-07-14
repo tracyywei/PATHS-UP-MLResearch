@@ -20,11 +20,11 @@ dataset = load_breast_cancer()
 X = dataset.data
 Y = dataset.target
 
-pX = preprocessing.normalize(X)
+pX = StandardScaler().fit_transform(X)
 from sklearn.cluster import AffinityPropagation
 ap = AffinityPropagation()
 
-pca_model = PCA(n_components=5)
+pca_model = PCA(n_components=7)
 pca_model.fit(pX)
 pX = pca_model.transform(pX)
 
@@ -57,7 +57,7 @@ f, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
 ax1.scatter(pX[:,0], pX[:,1], c=a_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=y_pred, cmap='jet', edgecolor='None', alpha=0.5)
-ax2.set_title('Affinity Propagationg results')
+ax2.set_title('Affinity Propagation results')
 
 # Without dimensionality reduction
 # Affinity Propagation accuracy score: 0.9191564147627417
