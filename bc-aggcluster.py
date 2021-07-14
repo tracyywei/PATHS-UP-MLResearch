@@ -20,9 +20,13 @@ dataset = load_breast_cancer()
 X = dataset.data
 Y = dataset.target
 
-pX = preprocessing.normalize(X)
+pX = StandardScaler().fit_transform(X)
 from sklearn.cluster import AgglomerativeClustering 
 hc = AgglomerativeClustering(n_clusters = 11, affinity = 'euclidean', linkage = 'ward')
+
+pca_model = PCA(n_components=5)
+pca_model.fit(pX)
+pX = pca_model.transform(pX)
 
 h_pred = hc.fit_predict(pX)
 
@@ -55,10 +59,9 @@ ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=hy_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('Agglomerative Clustering results')
 
-# Without dimensionality reduction
-# Agglomerative Clustering accuracy score: 0.9244288224956063
-# Agglomerative Clustering confusion matrix: [[188  24]
+# Agglomerative Clustering accuracy score: 0.9490333919156415
+# Agglomerative Clustering confusion matrix: [[202  10]
 # [ 19 338]]
-# Precision: 0.897
-# Recall: 0.955
-# F1: 0.925
+# Precision: 0.971
+# Recall: 0.947
+# F1: 0.959
