@@ -24,10 +24,6 @@ pX = StandardScaler().fit_transform(X)
 from sklearn.cluster import AffinityPropagation
 ap = AffinityPropagation()
 
-pca_model = PCA(n_components=7)
-pca_model.fit(pX)
-pX = pca_model.transform(pX)
-
 a_pred = ap.fit_predict(pX)
 
 dframe = pd.DataFrame({'predictions': a_pred, 'target': Y})
@@ -59,10 +55,9 @@ ax1.set_title('Actual clusters')
 ax2.scatter(pX[:,0], pX[:,1], c=y_pred, cmap='jet', edgecolor='None', alpha=0.5)
 ax2.set_title('Affinity Propagation results')
 
-# Without dimensionality reduction
-# Affinity Propagation accuracy score: 0.9191564147627417
-# Affinity Propagation confusion matrix: [[182  30]
-# [ 16 341]]
-# Precision: 0.919
-# Recall: 0.955
-# F1: 0.937
+# Affinity Propagation accuracy score: 0.9507908611599297
+# Affinity Propagation confusion matrix: [[203   9]
+# [ 19 338]]
+# Precision: 0.974
+# Recall: 0.947
+# F1: 0.960
