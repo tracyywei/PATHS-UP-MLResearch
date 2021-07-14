@@ -1,8 +1,8 @@
 # PATHS-UP Young Scholars Program
 ## Week 3
 Applied dimensionality reduction to clustering algorithms
-<br><br>![image](https://user-images.githubusercontent.com/66813711/125358580-b2a39d80-e32e-11eb-9e25-856b53885f4b.png)        ![image](https://user-images.githubusercontent.com/66813711/125358939-32ca0300-e32f-11eb-8733-6d2b7f1b1f53.png)
-<br>![image](https://user-images.githubusercontent.com/66813711/125358662-d0710280-e32e-11eb-9eb7-7219e4cfb67a.png)        ![image](https://user-images.githubusercontent.com/66813711/125358722-e8e11d00-e32e-11eb-82b9-a82cdbfccd56.png)
+<br><br>![image](https://user-images.githubusercontent.com/66813711/125358580-b2a39d80-e32e-11eb-9e25-856b53885f4b.png)        ![image](https://user-images.githubusercontent.com/66813711/125552655-29b91dc9-0edc-45a8-9e8d-68289d58059e.png)
+<br>![image](https://user-images.githubusercontent.com/66813711/125358662-d0710280-e32e-11eb-9eb7-7219e4cfb67a.png)        ![image](https://user-images.githubusercontent.com/66813711/125552544-6c13db97-eb89-47af-a794-d0c60a80af21.png)
 
 ## Week 2
 <b><a href="https://www.notion.so/research-observations-018a312d9487489991b13f35bca735e5">My Observations and Progress</b></a> 
