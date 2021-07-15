@@ -1,4 +1,6 @@
 # PATHS-UP Young Scholars Program
+<a href = "https://www.canva.com/design/DAEkGpL3uOs/SGXstqQqAiNGlOr_HqIyDg/view?utm_content=DAEkGpL3uOs&utm_campaign=designshare&utm_medium=link&utm_source=publishpresent"><b>Research Poster</b></a>
+
 ## Week 3
 Applied dimensionality reduction to clustering algorithms
 <br><br>![image](https://user-images.githubusercontent.com/66813711/125358580-b2a39d80-e32e-11eb-9e25-856b53885f4b.png)        ![image](https://user-images.githubusercontent.com/66813711/125552655-29b91dc9-0edc-45a8-9e8d-68289d58059e.png)
